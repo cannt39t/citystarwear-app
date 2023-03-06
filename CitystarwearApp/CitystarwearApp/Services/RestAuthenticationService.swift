@@ -8,9 +8,15 @@
 import Foundation
 import Alamofire
 
+enum hdlr: String {
+    case bsSendCallCode
+    case bsSendSMSCode
+    case bsSendEmailCode
+}
+
 class RestAuthenticationService: AuthenticationService {
     
-    let headers: HTTPHeaders = [
+    private let headers: HTTPHeaders = [
       "sec-ch-ua": "\"Not_A Brand\";v=\"99\", \"Google Chrome\";v=\"109\", \"Chromium\";v=\"109\"",
       "sec-ch-ua-mobile": "?0",
       "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
@@ -21,25 +27,17 @@ class RestAuthenticationService: AuthenticationService {
       "sec-ch-ua-platform": "\"macOS\""
     ]
     
-    
-    func sendSmsCode(number: String) {
-        
-    }
-    
-    func sendEmailCode(number: String) {
-        
-    }
-    
-    func sendCallCode(number: String) {
+    private func sendRequestAuthentication(number: String? = nil, email: String? = nil, type: hdlr) {
         let parameters: Parameters = [
-            "phone": number,
-            "hdlr": "bsSendCallCode",
+            "phone": number ?? "",
+            "email": email ?? "",
+            "hdlr": type.rawValue,
             "key": "DOvBhIav34535434v212SEoVINS",
             "dataForm": [
-                "phone": number,
+                "phone": number ?? "",
                 "callNums": "",
                 "smsCode": "",
-                "email": "",
+                "email": email ?? "",
                 "ecode": ""
             ],
             "4YreJ": "niKOC7pJmi1BET3puazqvly5E",
@@ -70,11 +68,24 @@ class RestAuthenticationService: AuthenticationService {
         }
     }
     
+    
+    func sendSmsCode(number: String) {
+        sendRequestAuthentication(number: number, type: hdlr.bsSendSMSCode)
+    }
+    
+    func sendEmailCode(email: String) {
+        sendRequestAuthentication(email: email, type: hdlr.bsSendEmailCode)
+    }
+    
+    func sendCallCode(number: String) {
+        sendRequestAuthentication(number: number, type: hdlr.bsSendCallCode)
+    }
+    
     func confirmSmsCode(number: String, code: Int, completion: () -> ()) {
         
     }
     
-    func confirmEmailCode(number: String, code: Int, completion: () -> ()) {
+    func confirmEmailCode(email: String, code: Int, completion: () -> ()) {
         
     }
     

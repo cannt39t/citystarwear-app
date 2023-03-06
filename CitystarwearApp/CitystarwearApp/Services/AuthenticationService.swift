@@ -13,11 +13,11 @@ import Foundation
 protocol AuthenticationService {
     
     func sendSmsCode(number: String) -> ()
-    func sendEmailCode(number: String) -> ()
+    func sendEmailCode(email: String) -> ()
     func sendCallCode(number: String) -> ()
     
     func confirmSmsCode(number: String, code: Int, completion: () -> ())
-    func confirmEmailCode(number: String, code: Int, completion: () -> ())
+    func confirmEmailCode(email: String, code: Int, completion: () -> ())
     func confirmCallCode(number: String, code: Int, completion: () -> ())
     
 }

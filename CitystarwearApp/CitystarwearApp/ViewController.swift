@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let number = "9270316495"
-        rest.sendCallCode(number: number)
+        rest.sendSmsCode(number: number)
     }
 
 
