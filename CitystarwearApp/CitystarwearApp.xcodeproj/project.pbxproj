@@ -13,6 +13,10 @@
 		05B131F429B618EB0082BC6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B131F229B618EB0082BC6B /* Main.storyboard */; };
 		05B131F629B618EC0082BC6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05B131F529B618EC0082BC6B /* Assets.xcassets */; };
 		05B131F929B618EC0082BC6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B131F729B618EC0082BC6B /* LaunchScreen.storyboard */; };
+		05B1320B29B620380082BC6B /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B1320A29B620380082BC6B /* AuthenticationService.swift */; };
+		05B1320D29B622120082BC6B /* RestAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B1320C29B622120082BC6B /* RestAuthenticationService.swift */; };
+		05B1321029B628440082BC6B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 05B1320F29B628440082BC6B /* Alamofire */; };
+		05B1321329B62D810082BC6B /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 05B1321229B62D810082BC6B /* SwiftSoup */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,8 @@
 		05B131F529B618EC0082BC6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05B131F829B618EC0082BC6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05B131FA29B618EC0082BC6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05B1320A29B620380082BC6B /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		05B1320C29B622120082BC6B /* RestAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestAuthenticationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B1321029B628440082BC6B /* Alamofire in Frameworks */,
+				05B1321329B62D810082BC6B /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +121,8 @@
 		05B1320529B6195F0082BC6B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				05B1320A29B620380082BC6B /* AuthenticationService.swift */,
+				05B1320C29B622120082BC6B /* RestAuthenticationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -163,6 +173,10 @@
 			dependencies = (
 			);
 			name = CitystarwearApp;
+			packageProductDependencies = (
+				05B1320F29B628440082BC6B /* Alamofire */,
+				05B1321229B62D810082BC6B /* SwiftSoup */,
+			);
 			productName = CitystarwearApp;
 			productReference = 05B131E929B618EB0082BC6B /* CitystarwearApp.app */;
 			productType = "com.apple.product-type.application";
@@ -191,6 +205,10 @@
 				Base,
 			);
 			mainGroup = 05B131E029B618EB0082BC6B;
+			packageReferences = (
+				05B1320E29B628440082BC6B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				05B1321129B62D810082BC6B /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+			);
 			productRefGroup = 05B131EA29B618EB0082BC6B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -221,6 +239,8 @@
 				05B131F129B618EB0082BC6B /* ViewController.swift in Sources */,
 				05B131ED29B618EB0082BC6B /* AppDelegate.swift in Sources */,
 				05B131EF29B618EB0082BC6B /* SceneDelegate.swift in Sources */,
+				05B1320D29B622120082BC6B /* RestAuthenticationService.swift in Sources */,
+				05B1320B29B620380082BC6B /* AuthenticationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +458,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		05B1320E29B628440082BC6B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		05B1321129B62D810082BC6B /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		05B1320F29B628440082BC6B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05B1320E29B628440082BC6B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		05B1321229B62D810082BC6B /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 05B1321129B62D810082BC6B /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 05B131E129B618EB0082BC6B /* Project object */;
 }

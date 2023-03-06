@@ -8,10 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    private let rest = RestAuthenticationService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let number = "9270316495"
+        rest.sendCallCode(number: number)
     }
 
 
